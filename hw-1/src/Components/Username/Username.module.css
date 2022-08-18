@@ -1,0 +1,17 @@
+.username {
+    display: inline-block;
+    width: 236px;
+    background: #2231AA;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+}
+
+.userInfo {
+    background-color: red;
+}
+
+
+
+
