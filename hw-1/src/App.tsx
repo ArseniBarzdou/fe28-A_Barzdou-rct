@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import styles from './App.module.css';
 import Button, {ButtonType} from "./Components/Button";
 import Username from "./Components/Username";
+import Title, {TitleType} from "./Components/Title";
 
 const TABS_NAME = [
     {
@@ -35,6 +36,7 @@ export const App = () => {
             <Username title={'AM'}  className={styles.userInfo}  />
             <Username title={'Artem Malkin'}  className={styles.nickname}  />
             {TABS_NAME.map((tab) => <div key={tab.key} className={styles.nickname}>{tab.title}</div>)}
+            <Title type={TitleType.Signin} title={'Sign In'} onClick={() => alert('Вы не можете войти')}/>
         </div>
     );
 }
