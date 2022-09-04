@@ -2,7 +2,6 @@ export enum ButtonType {
     Primary = 'primary',
     Secondary = 'secondary',
     Error = 'error',
-    Gray = 'gray',
 }
 
 export type ButtonClassnamesType = {

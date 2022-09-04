@@ -24,12 +24,14 @@ export const App = () => {
 
     return (
         <div className={styles.app}>
-            <Button type={ButtonType.Primary} title={'Primary'} onClick={() => alert('Primary')}/>
-            <Button type={ButtonType.Gray} title={'Primary'} onClick={() => alert('Primary')}/>
-            <Button type={ButtonType.Secondary} title={'Secondary'} onClick={() => alert('Secondary')} disabled={true} />
-            <Button type={ButtonType.Gray} title={'Secondary'} onClick={() => alert('Secondary')} disabled={true} />
+            <div className="button-type">
+            <Button type={ButtonType.Primary} title={'Primary'} onClick={() => alert('Primary')} />
+            <Button type={ButtonType.Primary} title={'Primary'} onClick={() => alert('Primary')} disabled/>
+            <Button type={ButtonType.Secondary} title={'Secondary'} onClick={() => alert('Secondary')} />
+            <Button type={ButtonType.Secondary} title={'Secondary'} onClick={() => alert('Secondary')} disabled/>
             <Button type={ButtonType.Error} title={'Error'} onClick={() => alert('Error')} />
-            <Button type={ButtonType.Gray} title={'Error'} onClick={() => alert('Error')} />
+            <Button type={ButtonType.Error} title={'Error'} onClick={() => alert('Error')} disabled/>
+            </div>
             <Username title={'AM'}  className={styles.userInfo}  />
             <Username title={'Artem Malkin'}  className={styles.nickname}  />
             {TABS_NAME.map((tab) => <div key={tab.key} className={styles.nickname}>{tab.title}</div>)}
