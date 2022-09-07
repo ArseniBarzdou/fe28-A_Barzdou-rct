@@ -1,0 +1,57 @@
+
+.button {
+    display: inline-block;
+    background-color: #fff;
+    width: 132px;
+    height: 56px;
+    gap: 10px;
+    margin: 10px;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 52px;
+    text-align: center;
+}
+
+.primary {
+    background-color:#2231AA;
+    border-radius: 2px;
+    color: #FFFFFF;
+}
+
+.primary:hover {
+    background-color: #5360CD;
+}
+
+.secondary {
+    background-color:#E8E8E8;
+    border-radius: 2px;
+    color: #313037;
+}
+
+.secondary:hover {
+    background-color: #DADADA;
+
+}
+
+.error {
+    color: #FD3419;
+    background-color: #fff;
+}
+
+.error:hover{
+    background-color: rgba(209, 207, 207, 0.493);
+
+}
+
+.disabled {
+    pointer-events: none;
+    background-color: #E8E8E8;
+    color: #8D8E97;
+}
+
+.button-type {
+    display: block;
+}
