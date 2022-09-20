@@ -19,6 +19,7 @@
     background-color:#2231AA;
     border-radius: 2px;
     color: #FFFFFF;
+
 }
 
 .primary:hover {
@@ -50,8 +51,4 @@
     pointer-events: none;
     background-color: #E8E8E8;
     color: #8D8E97;
-}
-
-.button-type {
-    display: block;
 }

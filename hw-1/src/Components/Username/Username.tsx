@@ -2,10 +2,15 @@ import React from 'react';
 // @ts-ignore
 import styles from "./Username.module.css";
 
-const Username = ({title, onClick, className }: any) => {
+const Username = ({userName }: any) => {
 
 
-    return <div onClick={onClick} className={`${styles.username}  ${className || ''}`}>{title}</div>
-}
+    return (
+    <div className={styles.username}>
+        <p>{userName}</p>
+
+    </div>
+    );
+};
 
 export default Username
