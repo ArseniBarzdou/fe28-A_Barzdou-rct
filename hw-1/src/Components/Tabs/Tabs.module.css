@@ -40,6 +40,7 @@ ul.tabList button {
 ul.tabList button:hover {
     color: rgba(60, 29, 235, 0.986);
     border-bottom: 2px solid rgb(55, 27, 216);
+    transition: 0.2s;
 }
 ul.tabList button:disabled {
     opacity: 0.7;
