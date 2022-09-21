@@ -1,0 +1,20 @@
+.container {
+    /* width: 1120px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100;
+    border: 1px solid transparent;
+}
+
+.wrapper__place {
+    display: block;
+    justify-content:center;
+    border-radius: 2px;
+    /* padding: 18px 20px; */
+    border: 2px solid transparent;
+    border-color: #DADADA
+    ;
+
+}

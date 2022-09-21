@@ -13,6 +13,8 @@ import Header from "./Components/Header";
 import Input from "./Components/Input/Input";
 import Footer from "./Components/Footer";
 import CardList from "./Components/CardList/CardList";
+import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 
 import store from './Components/Redux/store';
 
@@ -28,7 +30,7 @@ export const App = () => {
     const [isOpened, setOpened] = useState(true);
 
     return (
-        <div >
+        <div className={styles.app}>
             <Header  
             onClick={() => setOpened(!isOpened)}
         title={isOpened ? "x" : "="}
@@ -54,10 +56,10 @@ export const App = () => {
             </div> */}
 
             <Tabs/>
-            <div className={`${styles.wrapper}`}>
-                <Title title={"Sign In"} />
-            </div>
-            <CardList></CardList>
+            {/* <Title title={"Blog"} /> */}
+            <SignIn/>
+            <SignUp/>
+            {/* <CardList></CardList> */}
             <Footer/>
         </div>
             

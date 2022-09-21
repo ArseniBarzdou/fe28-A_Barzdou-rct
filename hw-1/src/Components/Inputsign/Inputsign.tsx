@@ -1,8 +1,8 @@
 import React, {FC,ChangeEvent} from 'react'
 //@ts-ignore
-import styles from './Input.module.css'
+import styles from './Inputsign.module.css'
 
-type InputProps = {
+type InputPropsSign = {
     value: string, 
     onChange: (value:string)=>void, 
     placeholder?: string, 
@@ -10,7 +10,7 @@ type InputProps = {
     error?: boolean,
 }
 
-const Input: FC<InputProps> = ({value, onChange, placeholder='', disabled, error}) => {
+const Inputsign: FC<InputPropsSign> = ({value, onChange, placeholder='', disabled, error}) => {
 
     const onInputChange = (evt:ChangeEvent<HTMLInputElement>)=>{
     onChange(evt.target.value)
@@ -20,5 +20,5 @@ const Input: FC<InputProps> = ({value, onChange, placeholder='', disabled, error
         <input type="text" onChange={onInputChange} value={value} placeholder={placeholder} className={`${styles.input} ${ error ? styles.error : ''}`} disabled={disabled}/>
     )
 }
-export default Input;
+export default Inputsign;
 
