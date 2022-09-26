@@ -5,6 +5,7 @@
     font-size: 56px;
     line-height: 80px;}
 .titleWrapper {
-    width: 212px;
+    display: flex;
+    /* width: 212px; */
     text-align: start;
 }

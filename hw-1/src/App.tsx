@@ -15,6 +15,7 @@ import Footer from "./Components/Footer";
 import CardList from "./Components/CardList/CardList";
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
+import Blog from './Pages/Blog';
 
 import store from './Components/Redux/store';
 
@@ -54,11 +55,11 @@ export const App = () => {
             <Button type={ButtonType.Error} title={'Error'} onClick={() => alert('Error')} />
             <Button type={ButtonType.Error} title={'Error'} onClick={() => alert('Error')} disabled/>
             </div> */}
-
-            <Tabs/>
+            <Blog/>
+            {/* <Tabs/> */}
             {/* <Title title={"Blog"} /> */}
-            <SignIn/>
-            <SignUp/>
+            {/* <SignIn/>
+            <SignUp/> */}
             {/* <CardList></CardList> */}
             <Footer/>
         </div>
