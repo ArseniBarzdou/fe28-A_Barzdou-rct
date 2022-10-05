@@ -1,3 +1,6 @@
+import { TabsNames } from "../../Utils/globalTypes";
+
+
 export type TabsNameArray = {
     key: string;
     title: string;
@@ -7,4 +10,6 @@ export type TabsNameArray = {
 
 export type TabsProps = {
     tabs: Array<TabsNameArray>;
+    onClick: (id: TabsNames) => void;
+    activeTab: TabsNames;
 };

@@ -10,7 +10,7 @@ type InputPropsSign = {
     error?: boolean,
 }
 
-const Inputsign: FC<InputPropsSign> = ({value, onChange, placeholder='', disabled, error}) => {
+const inputSign: FC<InputPropsSign> = ({value, onChange, placeholder='', disabled, error}) => {
 
     const onInputChange = (evt:ChangeEvent<HTMLInputElement>)=>{
     onChange(evt.target.value)
@@ -20,5 +20,5 @@ const Inputsign: FC<InputPropsSign> = ({value, onChange, placeholder='', disable
         <input type="text" onChange={onInputChange} value={value} placeholder={placeholder} className={`${styles.input} ${ error ? styles.error : ''}`} disabled={disabled}/>
     )
 }
-export default Inputsign;
+export default inputSign;
 

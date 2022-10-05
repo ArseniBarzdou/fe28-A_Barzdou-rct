@@ -1,24 +1,28 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 // @ts-ignore
 
-import classNames from 'classnames';
 import Tabs from "../../Components/Tabs";
+import { TabsNames } from "../../Utils/globalTypes";
 import CardList from "../../Components/CardList/CardList";
 import Title from "../../Components/Title";
+import { setActiveTab } from "../../Redux/reducers/PostsReducer";
+import PostsSelectors from "../../Redux/selectors/postSelectors"
+
+
+
 
 const Blog = () => {
-    const TABS_NAME = [
-        { key: "all",tabTitle: "All" },
-        { key: "mf",tabTitle: "My Favorite"},
-        { key: "p",tabTitle: "Popular"},
-    ];
-
+    const activeTab = useSelector(PostsSelectors.getActiveTab);
+    const dispatch = useDispatch ();
+    const onTabClick = (id: TabsNames) => {
+        dispatch(setActiveTab)
+    }
     return (
         <div>
             <Title title={"Blog"}/>
-            <Tabs/>
+            {/* <Tabs tabs={TABS_NAME} onClick={onTabClick} activeTab={activeTab}/> */}
             <CardList/>
         </div>
     )

@@ -28,13 +28,12 @@ const Tabs =  () => {
             return <li key={tab.key}><button onClick={targetTabs} disabled>{tab.tabTitle}</button></li>
           }
         }
-      )}
-      </ul>
-      <br />
-      <br />
-    </div>
-  );
-};
+        )}
+        </ul>
 
-export default Tabs;
-
+      </div>
+    );
+  };
+  
+  export default Tabs;
+  
