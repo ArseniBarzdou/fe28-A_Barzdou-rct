@@ -1,5 +1,5 @@
 import React, {FC, useState, useEffect} from "react";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 // @ts-ignore
 import styles from './SignIn.module.css'
@@ -7,6 +7,9 @@ import classNames from "classnames";
 import Title from "../../Components/Title";
 import Button, { ButtonType } from "../../Components/Button";
 import Inputsign from "../../Components/Inputsign/Inputsign";
+import Label from "../../Components/Label";
+import { PathNames } from "../Router/Router";
+
 
 const validateMail = (email: string) => {
     return String(email)
@@ -56,13 +59,13 @@ const Signin = () => {
 
     return (
         <div className={classNames(styles.container)}>
-            <div>
+            <div className={styles.block__title}>
                 <div> Back to Home</div>
                 <Title title = {"Sign In"}/>
             </div>
             <div className={classNames(styles.wrapper__place)} >
-                <div>Email</div>
-                    <div >
+                <Label title={'Email'} />
+                    <div>
                         <Inputsign 
                             placeholder={"Your email"}
                             onChange={setMail}
@@ -72,7 +75,7 @@ const Signin = () => {
                         {mailTouch && mailError && <div>{mailError}</div>}
                     </div>
                 <div>
-                <div>Password</div>
+                <Label title={'Password'} />
                     <Inputsign
                     placeholder={"Your password"}
                     onChange={setPassword}
@@ -93,8 +96,8 @@ const Signin = () => {
                         disabled={false}
                     />
                 </div>
-                <div>
-                    Don’t have an account? Sign Up
+                <div className={styles.haveAccount}>
+                    Don’t have an account?<p>SignIn</p>
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@ const Signup = () => {
 
     return (
             <div className={classNames(styles.container)}>
-                <div>
+                <div className={styles.block__title}>
                     <div> Back to Home</div>
                     <Title title = {"Sign Up"}/>
                 </div>
@@ -113,8 +113,8 @@ const Signup = () => {
                             disabled={false}
                         />
                     </div>
-                    <div>
-                        Don’t have an account? Sign In
+                    <div className={styles.haveAccount}>
+                        Already have an account? Sign In
                     </div>
                 </div>
             </div>

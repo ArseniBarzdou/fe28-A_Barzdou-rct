@@ -2,10 +2,8 @@
 .button {
     display: inline-block;
     background-color: #fff;
-    width: 132px;
     height: 56px;
     gap: 10px;
-    margin: 10px;
     cursor: pointer;
     font-family: 'Inter';
     font-style: normal;
