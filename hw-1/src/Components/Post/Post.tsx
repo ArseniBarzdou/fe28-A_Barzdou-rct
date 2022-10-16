@@ -1,36 +1,31 @@
 import React, { FC } from "react";
 // @ts-ignore
-import styles from "./CardPost.module.css";
-import { CardSize } from "../CardList/CardList";
+import styles from "./Post.module.css";
 import classNames from "classnames";
 import { LikeDownIcon, LikeUpIcon, Ellipsis, SavesIcon } from "../../Assets/Icons";
-import { CardPostProps } from "./types";
+import { PostProps } from "./types";
+import { useNavigate } from "react-router-dom";
 
-const CardPost: FC<CardPostProps> = ({ post, size }) => {
-    const { image, text, date, title } = post;
+
+const Post: FC<PostProps> = ({ post, }) => {
+    const { image, text, title } = post;
 
 
     return (
     <>
-        <div
-        className={classNames(styles.post, {
-            [styles.largePost]: size === CardSize.Large,
-            [styles.mediumPost]: size === CardSize.Medium,
-            [styles.smallPost]: size === CardSize.Small,
-        })}
-        >
         <div className={styles.textImgWrap}>
             <div className={styles.contentWrapper}>
             <div className={styles.titleWrapper}>
-                <div className={styles.date}>{date}</div>
+                <div className={styles.PostName}> Home <span>| Post14278</span> </div>
                 <div className={styles.title}>{title}</div>
             </div>
-            {size === CardSize.Large && (
-                <div className={styles.textWrapper}>{text}</div>
-            )}
+
             </div>
             <div className={styles.imgWrapper}>
             <img src={image} alt="img" />
+            </div>
+            <div>
+                {text}
             </div>
         </div>
         <div className={styles.iconsWrapper}>
@@ -39,12 +34,21 @@ const CardPost: FC<CardPostProps> = ({ post, size }) => {
             <LikeDownIcon />
             </div>
             <div className={styles.iconsOptions}>
-            <SavesIcon />
-            <Ellipsis />
+            Add to Favorites
             </div>
         </div>
+        
+        <div>
+            <div>
+                <div>Prev</div>
+                <div>10 Things to Know About Salvador Dalí </div>
+            </div>
+            <div>
+                <div>Next</div>
+                <div>8 Beautiful Villas Belonging to Artists You Need to See </div>
+            </div>
         </div>
     </>
     );
 };
-export default CardPost;
+export default Post;

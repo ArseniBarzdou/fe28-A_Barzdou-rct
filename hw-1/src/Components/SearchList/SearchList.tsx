@@ -1,21 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react"
 // @ts-ignore
-import styles from "./CardList.module.css";
+
+import styles from "./SearchList.module.css";
 import classNames from "classnames";
+import CardSearchPost from "../CardSearchPost";
+import { CardSearchType } from "../CardSearchPost/Types";
 
-import CardPost from "../CardPost";
-import {CardPostType} from '../CardPost/types'
-import Post from "../Post";
+type SearchList = Array<CardSearchType>;
 
-export enum CardSize {
-    Large = "large",
-    Medium = "medium",
-    Small = "small"
-}
 
-type CardList = Array<CardPostType>
-
-const CardList = () => {
+const SearchList = () => {
 
     const POST_MOCK = [
         {
@@ -141,41 +135,28 @@ const CardList = () => {
         },
         
         ];
+        const [searchList, setSearchList] = useState<SearchList | null>([]);
 
-    const [cardList, setCardList] = useState< CardList | null>([])
+        const searchElement = "‘Astronauts’";
     
-    useEffect(()=>{
-        setCardList(POST_MOCK)},
-    [])
-
-    return cardList && cardList.length > 0 ? (
-        <div className={classNames(styles.listWrapper, {
-            })}>
-            <div className={styles.leftSideList}>
-                <div className={styles.largeCardListWrapper}>
-                <CardPost post={cardList[0]} size={CardSize.Large} />
-                </div>
+        useEffect(() => {
+        setSearchList(POST_MOCK);
+        }, []);
+    
+        return searchList && searchList.length > 0 ? (
+        <div className={classNames(styles.searchListWrapper)}>
+            <div className={classNames(styles.searchListTitle)}>
+            Search results {searchElement}
+            </div>
+            <div className={classNames(styles.searchListCardWrapper)}>
+            {searchList.map((post, id) => {
+                return <CardSearchPost post={post} key={post.id} />;
+            })}
+            </div>
+        </div>
+        ) : null;
         
-                <div className={styles.mediumCardListWrapper}>
-                {cardList.map((post, id) => {
-                    if (id >= 1 && id <= 4) {
-                    return (
-                        <CardPost post={post} key={post.id} size={CardSize.Medium} />
-                    );
-                    }
-                })}
-                </div>
-            </div>
-            <div className={styles.rightSideList}>
-                {cardList.map((post, id) => {
-                if (id >= 5) {
-                    return <CardPost post={post} key={post.id} size={CardSize.Small} />;
-                    <Post post={post}/>
-                }
-                })}
-            </div>
-            </div>
-    ) : null; 
-};
 
-export default CardList;
+}
+
+export default SearchList;

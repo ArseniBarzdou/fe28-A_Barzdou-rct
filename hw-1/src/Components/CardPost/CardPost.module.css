@@ -162,7 +162,15 @@
 
 .iconsThumb :first-child {
     margin-right: 52px;
+    width: 100px;
     cursor: pointer;
+}
+.iconsDown .iconsUp {
+    display: flex;
+}
+.iconsUp :hover {
+    fill: red;
+
 }
 .iconsOptions :first-child {
     margin-right: 30px;

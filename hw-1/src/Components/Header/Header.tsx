@@ -12,7 +12,7 @@ import Menu from "./Menu";
 
 
 
-const Header = ({onClick, isOpened}:any) => {
+const Header = ({onClick, input, isOpened}:any) => {
     const [value, setValue] = useState<string>("");
     const onChange = (inputValue: string) => {
     setValue(inputValue);
@@ -20,21 +20,15 @@ const Header = ({onClick, isOpened}:any) => {
     const [, setOpened] = useState(true);
 
 
-    
+
     return (
-        
+    
         <div className={classNames(styles.navbarMenu)}>
             <nav className={styles.nav}>
             <div className={styles.burgerButton} onClick={() => setOpened(!isOpened)}>
                 {isOpened ? <CancelIcon /> : <MenuIcon />}
             </div>
-            {/* <Popup
-                modal
-                closeOnDocumentClick={false}
-                trigger={(isOpened) => <MenuIcon isOpened={isOpened} />}>
-                {(setOpened) => <CancelIcon setOpened={setOpened} />}
-            </Popup> */}
-            {isOpened ? null :  (
+            {isOpened &&  (
             <Input
                 placeholder={"Search..."}
                 onChange={onChange}

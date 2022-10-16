@@ -28,17 +28,7 @@ const PagesWrapper = () => {
       className={classNames(styles.app)}
     >
       <Header
-        onClick={() => setOpened(!isOpened)}
-        isOpened={isOpened}
-        input={
-          isOpened && (
-            <Input
-              placeholder={"Placeholder"}
-              onChange={onChange}
-              value={value}
-            />
-          )
-        }
+        
       />
      {/* <Outlet/> */}
       {location.pathname === PathNames.Home ? <Blog/>:<Outlet/>}

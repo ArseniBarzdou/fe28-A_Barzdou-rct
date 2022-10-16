@@ -1,16 +1,11 @@
 .wrapper {
     display: flex;
-    max-width: 1017px;
-
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
+    width: 1120px;
+    margin: auto;
+    flex-direction: column;
 }
 .wrapperTabs {
-    padding: 10px;
-    display: flex;
-    
-    flex-direction:row;
+
 }
 
 

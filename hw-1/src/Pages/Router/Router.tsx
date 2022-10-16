@@ -26,6 +26,7 @@ const Router = () => {
             <Route path={PathNames.Home} element={<PagesWrapper />}>
             <Route path={PathNames.SignIn} element={<SignIn />} />
             <Route path={PathNames.SignUp} element={<SignUp />} />
+            <Route path={PathNames.SignUp} element={<SignUp />} />
 
             </Route>
             <Route path={'*'} element={<Navigate to={PathNames.SignIn}/>} />

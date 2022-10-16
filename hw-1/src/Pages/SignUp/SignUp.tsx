@@ -18,6 +18,9 @@ const validateMail = (email: string) => {
 };
 
 const Signup = () => {
+
+    const [name, setName] = useState('');
+
     const [mail, setMail] = useState("");
     const [mailError, setMailError] = useState("");
     const [mailTouch, setMailTouch] = useState(false);
@@ -26,6 +29,9 @@ const Signup = () => {
     const [passwordError, setPasswordError] = useState("");
     const [passwordTouch, setPasswordTouch] = useState(false);
 
+    const [confirmPassword, setConfirmPassword] = useState('');
+   const [confirmPasswordError, setConfirmPasswordError] = useState('');
+   const [confirmPasswordTouched, setConfirmPasswordTouched] = useState(false);
 
     const [value, setValue] = useState<string>("");
     const onChange = (inputValue: string) => {
@@ -47,6 +53,18 @@ const Signup = () => {
             setPasswordError("");
             }
         }, [passwordTouch, password]);
+
+        useEffect(() => {
+            if (confirmPasswordTouched && confirmPassword.length < 8) {
+                setConfirmPasswordError('Enter more than 8 characters');
+            } else if (confirmPasswordTouched && confirmPassword != password) {
+                setConfirmPasswordError(
+                    'Confirm validation failed. Password does not match'
+                );
+            } else {
+                setConfirmPasswordError('');
+            }
+        }, [confirmPasswordTouched, confirmPassword, password]);
     
 
 
@@ -62,12 +80,10 @@ const Signup = () => {
                     <Label title={'Name'}/>
                         <div >
                             <Inputsign 
-                                placeholder={"Your email"}
-                                onChange={setMail}
-                                value={mail}
-                                error={!!mailError}
+                                placeholder={"Your name"}
+                                onChange={setName}
+                                value={name}
                             />
-                            {mailTouch && mailError && <div>{mailError}</div>}
                         </div>
                     </div>  
                     <div className={classNames(styles.wrapper__mail)}>
@@ -95,12 +111,13 @@ const Signup = () => {
                     <div className={classNames(styles.wrapper__confpassword)}>
                     <Label title={'Confirm Password'}/>
                         <Inputsign
-                        placeholder={"Your password"}
-                        onChange={setPassword}
-                        value={password}
-                        error={!!passwordError}
+                        placeholder={'Confirm password'}
+                        onChange={setConfirmPassword}
+                        value={confirmPassword}
+                        error={!!confirmPasswordError}
                         />
-                        {passwordTouch && passwordError && <div className={classNames(styles.passwordError)} >{passwordError}</div>}
+                        {confirmPasswordTouched && confirmPasswordError && (
+                        <div>{confirmPasswordError}</div>)}
                     </div>
                     <div>
                         <Button
