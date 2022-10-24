@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC,useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 // @ts-ignore
@@ -24,16 +24,17 @@ const PagesWrapper = () => {
 
 
   return (
+    <>
     <div
       className={classNames(styles.app)}
     >
-      <Header
-        
-      />
+        <Header/>
+
      {/* <Outlet/> */}
       {location.pathname === PathNames.Home ? <Blog/>:<Outlet/>}
       <Footer />
     </div>
+    </>
   );
 };
 export default PagesWrapper;

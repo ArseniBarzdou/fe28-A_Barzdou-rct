@@ -3,9 +3,11 @@
     font-style: normal;
     font-weight: 700;
     font-size: 56px;
-    line-height: 80px;}
+    line-height: 80px;    
+}
+    
 .titleWrapper {
     display: flex;
-    /* width: 212px; */
-    text-align: start;
+    width: 1120px;
+    margin: auto;
 }

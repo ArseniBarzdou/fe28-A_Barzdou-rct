@@ -2,6 +2,8 @@ import { allowedNodeEnvironmentFlags } from "process";
 import React, { useState, FC, MouseEvent } from "react";
 //@ts-ignore
 import styles from "./Tabs.module.css";
+import classNames from "classnames";
+import { TabsProps } from "./types";
 
 
 
@@ -13,7 +15,7 @@ export const TABS_NAME = [
     { key: "p",tabTitle: "Popular"},
 ];
 
-const Tabs =  () => {
+const Tabs : FC<TabsProps> = ({ tabs, onClick, activeTab }) => {
   const targetTabs = (evt:MouseEvent<HTMLButtonElement>) =>{
     console.log(evt.target)
 

@@ -5,6 +5,13 @@ import { CardSize } from "../CardList/CardList";
 import classNames from "classnames";
 import { LikeDownIcon, LikeUpIcon, Ellipsis, SavesIcon } from "../../Assets/Icons";
 import { CardPostProps } from "./types";
+// import {
+//     setFavouritePost,
+//     setSelectedPost,
+//     setSelectedImgPost,
+//     setSingleImgModalVisible,
+//     setSinglePostModalVisible,
+//   } from "../../Redux/reducers/PostsReducer";
 
 const CardPost: FC<CardPostProps> = ({ post, size }) => {
     const { image, text, date, title } = post;
