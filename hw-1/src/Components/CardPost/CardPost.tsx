@@ -5,17 +5,25 @@ import { CardSize } from "../CardList/CardList";
 import classNames from "classnames";
 import { LikeDownIcon, LikeUpIcon, Ellipsis, SavesIcon } from "../../Assets/Icons";
 import { CardPostProps } from "./types";
-// import {
-//     setFavouritePost,
-//     setSelectedPost,
-//     setSelectedImgPost,
-//     setSingleImgModalVisible,
-//     setSinglePostModalVisible,
-//   } from "../../Redux/reducers/PostsReducer";
+import { useDispatch } from "react-redux";
+import {
+    setFavouritePost,
+    setLikeStatus
+} from "../../Redux/reducers/PostsReducer";
+import { LikeStatus } from "../../Utils/globalTypes";
 
 const CardPost: FC<CardPostProps> = ({ post, size }) => {
-    const { image, text, date, title } = post;
+    const { image, text, date, title, id, likeStatus } = post;
+    const dispatch = useDispatch();
 
+    const onAddFavorite = (event:any) =>{
+        event.stopPropagation()
+        dispatch(setFavouritePost(post))
+    };
+
+    const  onStatusClick = ( status: LikeStatus) =>{
+        dispatch(setLikeStatus({status, id }));
+    }
 
     return (
     <>
@@ -42,11 +50,11 @@ const CardPost: FC<CardPostProps> = ({ post, size }) => {
         </div>
         <div className={styles.iconsWrapper}>
             <div className={styles.iconsThumb}>
-            <LikeUpIcon />
-            <LikeDownIcon />
+            <div onClick={()=>onStatusClick(LikeStatus.Like)}><LikeUpIcon  />{likeStatus === LikeStatus.Like && 1}</div> 
+            <div onClick={()=>onStatusClick(LikeStatus.Dislike)}><LikeDownIcon />{likeStatus === LikeStatus.Dislike && 1}</div>
             </div>
             <div className={styles.iconsOptions}>
-            <SavesIcon />
+            <div onClick ={onAddFavorite} className={styles.saveIcon}><SavesIcon /></div>
             <Ellipsis />
             </div>
         </div>

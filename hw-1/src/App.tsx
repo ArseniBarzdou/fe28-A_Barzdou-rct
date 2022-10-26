@@ -54,36 +54,3 @@ const AppWithStore = () => {
 export default AppWithStore;
 
 
-
-// export const App = () => {
-//     const [value, setValue] = useState<string>("");
-//     const onChange = (inputValue: string) => {
-//     setValue(inputValue);
-//     };
-
-//     const { theme } = useTheme();
-//     const [isOpened, setOpened] = useState(true);
-
-    
-//     return (
-//         <div className={styles.app} 
-//             style={{
-//             ...theme
-//             } as React.CSSProperties}>
-//             <Header/>
-//             {/* <Blog/> */}
-//             {/* <Tabs/> */}
-//             {/* <Menu/> */}
-//             {/* <Title title={"Blog"} /> */}
-//             {/* <SignIn/> */}
-//             {/* <Post/> */}
-//             {/* <SignUp/> */}
-//             {/* <SearchList/> */}
-//             {/* <CardList/> */}
-//             <Footer/>
-//         </div>
-            
-        
-//     );
-// }
-// export default App;

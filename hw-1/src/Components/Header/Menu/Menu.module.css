@@ -89,7 +89,6 @@
 }
 
 
-/* activelink */
 
 .activeLink {
     color: rgba(34, 49, 170, 1);
@@ -98,12 +97,10 @@
     color: rgba(49, 48, 55, 1);
 }
 
-/* dark theme */
 
 .darkContainer li {
     background-color: #313037;
     color: #ffffff;
-    /* #a8acff */
     border-bottom: 1px solid #8d8e97;
     border-right: 1px solid #8d8e97;
     border-left: 1px solid #8d8e97;
