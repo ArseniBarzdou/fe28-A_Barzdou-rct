@@ -1,23 +1,13 @@
-
-.button {
-    display: inline-block;
-    background-color: #fff;
-    width: 132px;
-    height: 56px;
-    gap: 10px;
-    margin: 10px;
-    cursor: pointer;
-    font-family: 'Inter';
+.title {
+    font-family: "Inter";
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 52px;
-    text-align: center;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;    
 }
-
-.signin {
-    background-color:#2231AA;
-    border-radius: 2px;
-    color: #FFFFFF;
+    
+.titleWrapper {
+    display: flex;
+    width: 1120px;
+    margin: auto;
 }
-

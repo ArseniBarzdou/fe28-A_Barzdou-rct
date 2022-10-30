@@ -1,43 +1,42 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { Provider, useDispatch, useSelector } from "react-redux";
+
 // @ts-ignore
 import styles from './App.module.css';
-import Button, {ButtonType} from "./Components/Button";
-import Username from "./Components/Username";
-import Title, {TitleType} from "./Components/Title";
+import classNames from "classnames";
 
-const TABS_NAME = [
-    {
-        key: 'all',
-        title: 'All',
-        сlassName: 'all'
-    },
-    {
-        key: 'myfavorite',
-        title: 'My favorites',
-    },
-    {
-        key: 'popular',
-        title: 'Popular',
-    },
-]
-export const App = () => {
+import { changeTheme } from "./Redux/reducers/themeReducers";
+import { ThemeProvider } from "./Context/Theme/Provider";
+import ThemeSelectors from "./Redux/selectors/themeSelectors";
 
+import Router from "./Pages/Router";
+import store from './Redux/store';
+
+const App = () => {
+    
+    const theme = useSelector(ThemeSelectors.getTheme);
+
+    const dispatch = useDispatch();
+
+    const onChangeTheme = () => {
+        dispatch(changeTheme());
+    };
 
     return (
-        <div className={styles.app}>
-            <div className="button-type">
-            <Button type={ButtonType.Primary} title={'Primary'} onClick={() => alert('Primary')} />
-            <Button type={ButtonType.Primary} title={'Primary'} onClick={() => alert('Primary')} disabled/>
-            <Button type={ButtonType.Secondary} title={'Secondary'} onClick={() => alert('Secondary')} />
-            <Button type={ButtonType.Secondary} title={'Secondary'} onClick={() => alert('Secondary')} disabled/>
-            <Button type={ButtonType.Error} title={'Error'} onClick={() => alert('Error')} />
-            <Button type={ButtonType.Error} title={'Error'} onClick={() => alert('Error')} disabled/>
-            </div>
-            <Username title={'AM'}  className={styles.userInfo}  />
-            <Username title={'Artem Malkin'}  className={styles.nickname}  />
-            {TABS_NAME.map((tab) => <div key={tab.key} className={styles.nickname}>{tab.title}</div>)}
-            <Title type={TitleType.Signin} title={'Sign In'} onClick={() => alert('Вы не можете войти')}/>
-        </div>
+        <ThemeProvider theme={theme} onChangeTheme={onChangeTheme}>
+            <Router/>
+        </ThemeProvider>
     );
-}
-export default App;
+};
+
+const AppWithStore = () => {
+    return (
+    <Provider store={store}>
+        <App />
+    </Provider>
+    );
+};
+
+export default AppWithStore;
+
+

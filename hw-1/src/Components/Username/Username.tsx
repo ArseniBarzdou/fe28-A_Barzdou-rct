@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {FC} from 'react';
 // @ts-ignore
 import styles from "./Username.module.css";
+import { UserNamePropsType } from './types';
 
-const Username = ({title, onClick, className }: any) => {
+const Username: FC<UserNamePropsType> = ({ userName, className }) => {
 
 
-    return <div onClick={onClick} className={`${styles.username}  ${className || ''}`}>{title}</div>
-}
+    return (
+    <div className={`${styles.username} ${className || '' }`}>
+        <p>{userName}</p>
+
+    </div>
+    );
+};
 
 export default Username

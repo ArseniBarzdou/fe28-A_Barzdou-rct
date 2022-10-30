@@ -1,0 +1,58 @@
+nav {
+    width: 100%;
+    background-color: rgb(34, 49, 170);
+    position: relative;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.userSearchWrapper {
+    display: flex;
+
+}
+.inputNavbar{
+    background: #2231AA;
+    color: #ffffff;
+}
+.searchIcon {
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid rgb(83, 96, 205);
+    border-left: 1px solid rgb(83, 96, 205);
+
+    align-items: center;
+    padding: 0 34px;
+    cursor: pointer;
+}
+.searchIcon:hover svg > path {
+    stroke: rgb(204, 209, 255);
+}
+.burgerButton {
+    display: flex;
+    align-items: center;
+    height: 84px;
+    padding: 0px 30px;
+    border-right: 1px solid rgb(83, 96, 205);
+    cursor: pointer;
+    
+
+
+}
+
+.burgerButton p{
+    width: 25px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+
+
+}
+main {
+    padding: 50px;
+}
+main p {
+    margin: 20px 0;
+}
