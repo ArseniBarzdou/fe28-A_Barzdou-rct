@@ -1,17 +1,24 @@
-import {createContext, useContext} from 'react';
+import React, { FC, ReactNode } from "react";
 
-export enum Theme {
-    Light = 'light',
-    Dark = 'dark',
-}
+import ThemeContext, { Theme } from "./Context";
 
-const DEFAULT__VALUE = {
-    theme: Theme.Light,
-    onChangeTheme: () => {},
+type ThemeProviderProps = {
+  theme: Theme;
+  onChangeTheme: () => void;
+  children: ReactNode;
 };
 
-const ThemeContext = createContext(DEFAULT__VALUE);
+export const ThemeProvider: FC<ThemeProviderProps> = ({
+  theme,
+  onChangeTheme,
+  children,
+  
+}) => {
+  return (
+    <ThemeContext.Provider value={{ theme, onChangeTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
-export const useThemeContext = () => useContext(ThemeContext);
-
-export default ThemeContext;
+// export default ThemeProvider;

@@ -6,6 +6,8 @@ import styles from "./CardList.module.css";
 import CardPost from "../CardPost";
 
 import { CardListType } from "../../Utils/globalTypes";
+import { Theme, useThemeContext } from "../../Context/Theme/Context";
+
 
 export enum CardSize {
   Large = "large",
@@ -18,11 +20,14 @@ type CardListProps = {
 };
 
 const CardList: FC<CardListProps> = ({ cardList }) => {
+  const { theme } = useThemeContext();
 
 
   return cardList && cardList.length > 0 ? (
     <div
-      className={classNames(styles.listWrapper)}
+    className={classNames(styles.listWrapper, {
+      [styles.darkTheme]: theme === Theme.Dark,
+    })}
     >
       <div className={styles.leftSideList}>
         <div className={styles.largeCardListWrapper}>

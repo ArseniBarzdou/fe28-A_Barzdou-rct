@@ -1,24 +1,32 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CardListType, CardPostType, LikeStatus, TabsNames } from "../../Utils/globalTypes";
+import {
+  CardListType,
+  CardPostType,
+  LikeStatus,
+  TabsNames
+} from "../../Utils/globalTypes";
 
 type PostStateType = {
   selectedPost: CardPostType | null;
-  cardsList: CardListType;
-  activeTab: TabsNames;
-  favouritePostsList: CardListType;
+  selectedImgPost: CardPostType | null;
   singlePostModalVisible: boolean;
-  postModalImgVisible: boolean;
+  singleImgModalVisible: boolean;
+  activeTab: TabsNames;
+  cardsList: CardListType;
+  favouritePostsList: CardListType;
   singlePost: CardPostType | null;
   isPostLoading: boolean;
+
 };
 
 const INITIAL_STATE: PostStateType = {
   selectedPost: null,
-  cardsList: [],
-  activeTab: TabsNames.All,
-  favouritePostsList: [],
+  selectedImgPost: null,
   singlePostModalVisible: false,
-  postModalImgVisible: false,
+  singleImgModalVisible: false,
+  activeTab: TabsNames.All,
+  cardsList: [],
+  favouritePostsList: [],
   singlePost: null,
   isPostLoading: false,
 };
@@ -35,27 +43,33 @@ const postsReducer = createSlice({
     setSinglePostLoading: (state, action: PayloadAction<boolean>) => {
       state.isPostLoading = action.payload;
     },
-    setSinglePostModalVisible: (state, action: PayloadAction<boolean>) => {
-      state.singlePostModalVisible = action.payload;
-    },
-    setPostModalImgVisible: (state, action: PayloadAction<boolean>) => {
-      state.postModalImgVisible = action.payload;
-    },
     setSelectedPost: (state, action: PayloadAction<CardPostType | null>) => {
       state.selectedPost = action.payload;
     },
+    setSinglePostModalVisible: (state, action: PayloadAction<boolean>) => {
+      state.singlePostModalVisible = action.payload;
+    },
+    setSelectedImgPost: (state, action: PayloadAction<CardPostType | null>) => {
+      state.selectedImgPost = action.payload;
+    },
+    setSingleImgModalVisible: (state, action: PayloadAction<boolean>) => {
+      state.singleImgModalVisible = action.payload;
+    },
+    setActiveTab: (state, action: PayloadAction<TabsNames>) => {
+      state.activeTab = action.payload;
+    },
     setCardsList: (state, action: PayloadAction<CardListType>) => {
-      state.cardsList = action.payload.map((card) => {
+      state.cardsList = action.payload.map(card => {
         return {
           ...card,
-          likeStatus: null,
+          likeStatus: null
         };
       });
     },
     setFavouritePost: (state, action: PayloadAction<CardPostType>) => {
       const { id } = action.payload;
       const postIndex = state.favouritePostsList.findIndex(
-        (post) => post.id === id
+        post => post.id === id
       );
       if (postIndex === -1) {
         state.favouritePostsList.push(action.payload);
@@ -67,9 +81,9 @@ const postsReducer = createSlice({
       state,
       action: PayloadAction<{ status: LikeStatus; id: number }>
     ) => {
-      const post = state.cardsList.find((c) => c.id === action.payload.id);
+      const post = state.cardsList.find(c => c.id === action.payload.id);
       const postIndex = state.cardsList.findIndex(
-        (c) => c.id === action.payload.id
+        c => c.id === action.payload.id
       );
       //тут мы просто доп проверяем, нашел ли у нас find в массиве общих постов нужный нам
       if (post && postIndex !== -1) {
@@ -77,35 +91,34 @@ const postsReducer = createSlice({
         if (post.likeStatus === action.payload.status) {
           state.cardsList.splice(postIndex, 1, {
             ...post,
-            likeStatus: null,
+            likeStatus: null
           });
         } else {
           //Иначе дать ему актуальный статус
           state.cardsList.splice(postIndex, 1, {
             ...post,
-            likeStatus: action.payload.status,
+            likeStatus: action.payload.status
           });
         }
       }
-    },
-    setActiveTab: (state, action: PayloadAction<TabsNames>) => {
-      state.activeTab = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export default postsReducer.reducer;
 
 export const {
+  getPosts,
   setSelectedPost,
+  setSelectedImgPost,
+  setSinglePostModalVisible,
+  setSingleImgModalVisible,
+  setActiveTab,
   setCardsList,
   setFavouritePost,
   setLikeStatus,
-  setActiveTab,
-  setSinglePostModalVisible,
-  setPostModalImgVisible,
+  getSinglePost,
   setSinglePost,
   setSinglePostLoading,
-  getPosts,
-  getSinglePost,
+  
 } = postsReducer.actions;

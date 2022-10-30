@@ -70,18 +70,3 @@
   
   }
   
-  
-  .darkContainer {
-    border-bottom: 1px solid #8d8e97;
-  }
-  
-  .darkContainer .date,
-  .darkContainer .title {
-    color: #ffffff;
-  }
-  .darkContainer .iconsThumb :first-child {
-    fill: white;
-  }
-  .darkContainer .iconsOptions :first-child {
-    fill: white;
-  }

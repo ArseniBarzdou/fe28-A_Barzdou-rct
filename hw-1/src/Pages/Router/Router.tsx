@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Blog from "../Blog";
-import PagesWrapper from "../PostCont/PagesWrapper";
+import PagesWrapper from "../PagesWrapper/PagesWrapper";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
 import SearchList from "../../Components/SearchList";

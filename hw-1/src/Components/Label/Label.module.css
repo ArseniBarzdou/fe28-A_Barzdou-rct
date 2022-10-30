@@ -7,3 +7,7 @@
     line-height: 20px;
     color:  #313037;
 }
+
+.darkContainer.label {
+    color: white;
+}

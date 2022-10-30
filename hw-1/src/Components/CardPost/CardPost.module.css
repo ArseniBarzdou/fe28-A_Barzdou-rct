@@ -144,16 +144,16 @@
     width: 352px;
 }
 
-
 .largePost .iconsWrapper {
     width: 100%;
 }
 
-.iconsThumb :first-child {
-    margin-right: 52px;
-    width: 100px;
+.iconsThumb{
+    display:flex;
+    gap: 52px;
     cursor: pointer;
 }
+
 .iconsDown .iconsUp {
     display: flex;
 }
@@ -161,7 +161,61 @@
     fill: red;
 
 }
-.iconsOptions :first-child {
-    margin-right: 30px;
+
+.likeStatusButton {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: 42px;
+}
+
+.iconsOptions{
+    display: block;
+    margin-left: auto;
+    padding-right:1em;
     cursor: pointer;
+
+}
+
+.like svg path {
+    fill: rgb(70, 248, 109);
+}
+
+.dislike svg path {
+    fill: red;
+}
+
+.saveIcon svg path {
+    fill: #a1a100;
+}
+
+
+.darkTheme {
+    border-bottom: 1px solid #8d8e97;
+}
+
+.darkTheme svg > path {
+    fill: white;
+}
+.darkTheme .date {
+    color: #8d8e97;
+}
+.darkTheme .title {
+    color: white;
+}
+.darkTheme .title:hover {
+    text-shadow: 1px -1px 4px white;
+    transition: 0.1ms;
+
+}
+.darkTheme .textWrapper {
+    color: #8d8e97;
+}
+
+.darkTheme .like svg path{
+    fill: #aab3f1;
+}
+
+.darkTheme .dislike svg path{
+    fill: rgb(255, 46, 46);
 }

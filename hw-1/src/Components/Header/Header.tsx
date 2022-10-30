@@ -13,7 +13,7 @@ import {
     DarkIcon,
     MenuIcon,
     CancelIcon,
-    // UserIcon
+    // UserIcon,
 } from '../../../src/Assets/Icons';
 
 import { useDispatch, useSelector } from 'react-redux';
